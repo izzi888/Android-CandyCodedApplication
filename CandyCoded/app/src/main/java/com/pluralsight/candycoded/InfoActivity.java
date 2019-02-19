@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso;
 public class InfoActivity extends AppCompatActivity {
 
     public static final String MAP_PACKAGE = "com.google.android.apps.maps";
+    public static final String PHONE_NUMBER = "tel:0123456789";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,4 +44,11 @@ public class InfoActivity extends AppCompatActivity {
     // ***
     // TODO - Task 3 - Launch the Phone Activity
     // ***
+
+    public void createPhoneIntent(View view) {
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        Uri uri = Uri.parse(PHONE_NUMBER);
+        callIntent.setData(uri);
+        startActivity(callIntent);
+    }
 }
